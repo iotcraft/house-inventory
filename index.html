@@ -73,25 +73,66 @@
         <h2>% Breydon Walk Tenant inventory</h2>
         <p>This is a sample PDF document with a custom and beautiful design. Click the button below to generate the PDF.</p>
 
-        <div class="image-container">
-            <div class="image-column">
-                <img src="https://via.placeholder.com/450" alt="Image 1">
-                <p>Text for Image 1</p>
-            </div>
-            <div class="image-column">
-                <img src="https://via.placeholder.com/450" alt="Image 2">
-                <p>Text for Image 2</p>
-            </div>
-            <div class="image-column">
-                <img src="https://via.placeholder.com/450" alt="Image 3">
-                <p>Text for Image 3</p>
-            </div>
+        <div class="image-container" id="imagesContainer">
+            <!-- Images will be dynamically added here -->
         </div>
 
         <button id="downloadPageBtn" onclick="generatePDF()">Download PDF Copy of Page</button>
     </div>
 
     <script>
+        // Define image links for each category
+        const categories = {
+            bathroom: [
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0468.JPG",
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0469.JPG",
+                // ... add more links for the bathroom
+            ],
+            garden: [
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0526.JPG",
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0527.JPG",
+                // ... add more links for the garden
+            ],
+            outdoor: [
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0522.JPG",
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0523.JPG",
+                // ... add more links for the outdoor
+            ],
+            singleRoom: [
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0483.JPG",
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0484.JPG",
+                // ... add more links for the single room
+            ],
+            stairs: [
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0518.JPG",
+                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0519.JPG",
+                // ... add more links for the stairs
+            ],
+        };
+
+        // Function to dynamically add images to the container
+        function addImagesToContainer(category) {
+            const imagesContainer = document.getElementById("imagesContainer");
+            imagesContainer.innerHTML = "";
+
+            categories[category].forEach((imageUrl, index) => {
+                const imageColumn = document.createElement("div");
+                imageColumn.classList.add("image-column");
+
+                const image = document.createElement("img");
+                image.src = imageUrl;
+                image.alt = `Image ${index + 1}`;
+
+                const comment = document.createElement("p");
+                comment.textContent = `Text for Image ${index + 1}`;
+
+                imageColumn.appendChild(image);
+                imageColumn.appendChild(comment);
+
+                imagesContainer.appendChild(imageColumn);
+            });
+        }
+
         function generatePDF() {
             var element = document.querySelector(".pdf-content");
             html2pdf(element);
