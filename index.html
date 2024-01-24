@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom PDF Design</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -38,7 +35,6 @@
 
         .image-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             margin-top: 20px;
         }
@@ -46,13 +42,13 @@
         .image-column {
             flex: 0 0 30%;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         img {
             width: 100%;
             height: auto;
             border-radius: 8px;
+            margin-bottom: 15px; /* Added space between images */
             cursor: pointer;
         }
 
@@ -71,87 +67,37 @@
         }
     </style>
 </head>
-
 <body>
 
     <div class="pdf-content">
-        <h2>% Breydon Walk Tenant inventory</h2>
+        <h2>Beautiful PDF Design</h2>
         <p>This is a sample PDF document with a custom and beautiful design. Click the button below to generate the PDF.</p>
 
-        <div id="imagesContainer" class="image-container">
-            <!-- Images will be dynamically added here -->
+        <div class="image-container">
+            <div class="image-column">
+                <img src="
+https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0468.JPG" alt="Image 1">
+                <p>Text for Image 1</p>
+            </div>
+            <div class="image-column">
+                <img src="https://via.placeholder.com/450" alt="Image 2">
+                <p>Text for Image 2</p>
+            </div>
+            <div class="image-column">
+                <img src="https://via.placeholder.com/450" alt="Image 3">
+                <p>Text for Image 3</p>
+            </div>
         </div>
 
         <button id="downloadPageBtn" onclick="generatePDF()">Download PDF Copy of Page</button>
     </div>
 
     <script>
-        const categories = {
-            bathroom: [
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0468.JPG",
-                // Add other bathroom image links here
-            ],
-            garden: [
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0526.JPG",
-                // Add other garden image links here
-            ],
-            outdoor: [
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0522.JPG",
-                // Add other outdoor image links here
-            ],
-            singleRoom: [
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0483.JPG",
-                // Add other single room image links here
-            ],
-            stairs: [
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0518.JPG",
-                // Add other stairs image links here
-            ],
-        };
-
-        // Function to generate image elements for a given category
-        function generateImageElements(category) {
-            const imagesContainer = document.getElementById('imagesContainer');
-            imagesContainer.innerHTML = ''; // Clear existing images
-
-            const imageLinks = categories[category];
-
-            imageLinks.forEach((link, index) => {
-                const imageColumn = document.createElement('div');
-                imageColumn.classList.add('image-column');
-
-                const aElement = document.createElement('a');
-                aElement.setAttribute('href', link);
-                aElement.setAttribute('data-lightbox', category);
-
-                const imgElement = document.createElement('img');
-                imgElement.src = link;
-                imgElement.alt = `${category} Image ${index + 1}`;
-
-                const pElement = document.createElement('p');
-                pElement.textContent = `Text for ${category} Image ${index + 1}`;
-
-                aElement.appendChild(imgElement);
-                imageColumn.appendChild(aElement);
-                imageColumn.appendChild(pElement);
-
-                imagesContainer.appendChild(imageColumn);
-            });
-
-            // Refresh Lightbox to include new images
-            lightbox.refresh();
-        }
-
-        // Function to generate PDF
         function generatePDF() {
             var element = document.querySelector(".pdf-content");
             html2pdf(element);
         }
-
-        // Initial load
-        generateImageElements('bathroom'); // You can change this to load images for a different category initially
     </script>
 
 </body>
-
 </html>
